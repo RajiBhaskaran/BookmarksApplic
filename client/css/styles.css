@@ -1,0 +1,134 @@
+
+
+/*--------------*/
+body,.main,.sidebar,.mainbar{
+    position:relative;
+  
+}
+.main{
+    /*position: absolute;
+    margin-top: 20px;
+    top : 0px;*/
+}
+.nav li a{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.sidebar,.mainbar{
+    /*margin-top: 30px;*/
+    background-color: white;
+
+
+}
+#sidebar{
+    border-right: 5px solid rgb(235, 239, 249);
+    /*padding-top: 10px;*/
+    margin-bottom: -5000px; /* any large number will do */
+  padding-bottom: 5000px; 
+/*    position:absolute;
+    top:80px;
+    bottom: 0px;
+    
+    left: 60px;*/
+    /*top:40px;*/
+}
+.title{
+    height:30px;
+    background-color: rgb(235, 239, 249);
+}
+.bookmark-list{
+    padding: 10px;
+}
+.pad-top-bot-5{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.del-folder-btn,
+.add-folder-btn,
+.add-bookmark-btn,
+.btn-link:hover,
+.btn-link:active,
+.sign-in:active,
+.btn-link,
+.edit-folder-btn,
+.ok-folder-btn,
+.cancel-folder-btn,
+.ok-bookmark-btn,
+.cancel-bookmark-btn,
+.delete-bookmark-btn,
+.edit-bookmark-btn
+{
+    background-color: white;
+    border:none;
+    border-color:white;
+    outline: 0px;
+    box-shadow: none;
+
+}
+.add-folder-btn,
+.add-bookmark-btn{
+    background-color: rgb(235, 239, 249);
+    cursor: pointer;
+}
+.pad-top-10{
+    padding-top: 10px;
+}
+.add-bookmark{
+    margin-top: 15px;
+}
+.info{
+    padding-top: 4px;
+}
+.sign-in{
+    margin-right: -15px;
+}
+.folder-title,
+.bookmark-title
+{
+    padding-top:4px;
+    padding-right:0px;
+}
+.bookmark-list .row{
+    border-bottom: 2px solid rgb(235, 239, 249);
+}
+.row #sidebar{
+    overflow: hidden;
+}
+.bookmark-list .row:last-of-type{
+    border-bottom: 0px;
+}
+.nav>li>a:hover{
+    background-color: white;
+}
+.pad-lt-40{
+    padding-left: 40px;
+}
+#folderError , #bookmarkError {
+    color: red;
+}
+#new{
+    padding-top: 10px;
+}
+#folder_name{
+    width: 75%;
+    
+}
+.pad-lr-0{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.mar-top-10{
+    margin-top: 10px;
+}
+.ellip{
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.mar-top-0{
+    margin-top: 0px;
+
+}
+.pad-lt-15{
+    padding-left: 15px;
+}

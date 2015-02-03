@@ -1,0 +1,30 @@
+ <div>
+    <div class="row title">
+        <div class="col-sm-12 bookmark-title clearfix">
+        <div class="col-sm-10"><label>Bookmarks</label></div>
+            <button class="add-bookmark-btn pull-right"><span class="glyphicon glyphicon-plus"></span></button>
+        </div>
+    </div>
+</div>
+<% if(profile_id){ %>
+    <div class="row" style="margin-right:0px;" >
+        <h4 class="col-sm-10"><%= folder_name %></h4>
+    </div>
+    <div class="bookmark-list">  </div>
+    <div class="add-bookmark row hide">
+        <form class="form-inline hide" role="form">
+            <div class="form-group">
+                <label class="sr-only" for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="url">Url</label>
+                <input type="text" class="form-control" id="url" placeholder="Enter Url">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>  
+        </form> 
+        <button class="btn btn-default">Add Bookmark</button>    
+    </div>
+<% } else { %>
+<label> Please sign-in using your google account to continue </label>
+<% } %>

@@ -1,0 +1,10 @@
+{
+  "name": "BookmarksAPIs",
+  "description": "CRUD for bookmarks and folders",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "4.x",
+    "mongodb": "2.x",
+    "body-parser": "~1.11.0"
+  }
+}

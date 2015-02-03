@@ -1,0 +1,59 @@
+<% if(bookmark_name && !edit) { %>
+    <div class="col-sm-10"> 
+        <div class="info col-sm-12 pad-lr-0 mar-top-0">
+            <label class="col-sm-3"><%= bookmark_name %></label>
+            <label class="col-sm-9 ellip" title="<%= bookmark_url %>"><%= bookmark_url %></label>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="col-sm-6">
+            <button class="edit-bookmark-btn">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+        </div>    
+        <div class="col-sm-6">
+            <button class="text-center delete-bookmark-btn">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
+        
+    </div>
+<% } else { %>
+<div id="new" class="col-sm-12 pad-lr-0" > 
+    <div class="col-sm-10"> 
+        <div class="info col-sm-12 pad-lr-0">
+            <div class="form-group col-sm-3">
+                <input type="text" id="bookmark_name" placeholder="Enter Name" class="form-control" value="<%= bookmark_name %>">
+            </div>
+            <div class="form-group col-sm-6">
+                <input type="text" id="bookmark_url" placeholder="Enter Url" class="form-control" value="<%= bookmark_url %>">
+            </div>
+            <div class="form-group col-sm-3">
+                 <% if(edit) { %>
+                 <select id="changedFolder" class="form-control">
+                    <% for(var i=0;i < folderNames.length; i++ ){
+                            var a , fn = folderNames[i];
+                             if(folder_name == fn ){
+                                a = 'selected';
+                             } else{
+                                a = '';
+                             }
+                             %>
+                             <option value="<%= fn %>" <%=a %> > <%= fn %></option>
+                    <%}%> 
+                </select>
+             <%}%>  
+            </div>
+        </div>
+        <span id="bookmarkError" class="hide pad-lt-15"> Name exists </span>
+    </div>
+    <div class="col-sm-2 mar-top-10">
+        <button class="ok-bookmark-btn">
+            <span class="glyphicon glyphicon-ok"></span>
+        </button>
+        <button class="cancel-bookmark-btn">
+            <span class="glyphicon glyphicon-remove"></span>
+        </button>
+    </div>
+</div>
+<% } %>

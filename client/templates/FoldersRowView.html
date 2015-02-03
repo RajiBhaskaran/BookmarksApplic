@@ -1,0 +1,26 @@
+<% if(name && !edit) { %>
+<div id="existing">
+	<a class="col-sm-9" href="#folders/<%= name %>"> <%= name %> </a> 
+	<% if(name != "Others") { %>
+		<button class="del-folder-btn pull-right">
+			<span class="glyphicon glyphicon-remove" style="padding-top:10px"></span>
+		</button>
+		<button class="edit-folder-btn pull-right">
+			<span class="glyphicon glyphicon-pencil" style="padding-top:10px"></span>
+		</button>
+	<% } %>
+</div>
+<% } else { %>
+<div id="new" class="">
+	<div class="clearfix">
+		<input type="text" id="folder_name" placeholder="Enter Name" class="form-control pull-left" value="<%= name %>">
+		<button class="cancel-folder-btn pull-right" style="margin-right :0px">
+			<span class="glyphicon glyphicon-remove" style="padding-top:10px"></span>
+		</button>
+		<button class="ok-folder-btn pull-right">
+			<span class="glyphicon glyphicon-ok" style="padding-top:10px"></span>
+		</button>
+	</div> 
+	<span id="folderError" class="hide"> Name already exists </span>
+</div>
+<% } %>

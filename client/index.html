@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <META NAME="ROBOTS" CONTENT="noarchive">
+    <meta charset="utf-8">
+    <title>Bookmark Application</title>
+    <script src="https://apis.google.com/js/client:plusone.js" async defer></script>
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <script type="text/javascript">
+    
+      // Callback of google sign-in
+      function onSignInCallback(resp) {
+        if (resp['status']['signed_in']) 
+          gapi.client.load('plus', 'v1', apiClientLoaded);
+      };
+
+      // Get google profile once signed-in
+      function apiClientLoaded() {
+        gapi.client.plus.people.get({userId: 'me'}).execute(handleProfileResponse);
+      };
+
+      // Get the folders and bookmarks for the signed-in user
+      function handleProfileResponse(resp) {
+
+        window.profile_id = resp.id;
+        // setting the urlRoot here because google profile_id is available only at this point
+        FolderModel.prototype.urlRoot = "/users/"+ window.profile_id +"/folder";
+        
+        $.ajax({
+            method : 'GET',
+            contentType : 'application/json',
+            url : '/users/' + resp.id,
+            success : function(data){
+                app.populateData(data);
+                $('.add-bookmark-btn').prop('disabled', false);
+                $('.add-folder-btn').prop('disabled', false);
+                $('#signinButton').addClass('hide');
+            } 
+        });
+      }
+
+</script>
+</head>
+<body>
+<div id="header">
+  <div class="container" style="height:40px;">
+      <div class="row">
+        <div class="col-sm-9">
+          <h4>Bookmarks Application</h4>
+        </div>
+        <span id="signinButton" class="pull-right">
+          <span
+            class="g-signin"
+            data-callback="onSignInCallback"
+            data-clientid="243754083467-gklbrk9jphgd1rp4t21oedcgj77mbu6c.apps.googleusercontent.com"
+            data-cookiepolicy="single_host_origin"
+            data-requestvisibleactions="http://schema.org/AddAction"
+            data-scope="https://www.googleapis.com/auth/plus.login">
+          </span>
+        </span> 
+      </div>
+  </div>
+</div>
+<div class=" main main_container">
+  <div class="row" style="margin:0px;"></div>
+</div>
+
+<script src="lib/jquery-1.7.2.min.js"></script>
+<script src="lib/underscore-min.js"></script>
+<script src="lib/backbone-min.js"></script>
+
+<script src="js/utils.js"></script>
+<script src="js/models/bookmarkModel.js"></script>
+<script src="js/views/HeaderView.js"></script>
+<script src="js/views/folderslist.js"></script>
+<script src="js/views/bookmarkslist.js"></script>
+
+<script src="js/main.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#sidebar").height($(window).height() - 80 );
+  })
+</script>
+
+</body>
+</html>
